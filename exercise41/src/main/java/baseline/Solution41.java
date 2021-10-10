@@ -11,6 +11,7 @@ write the names/information into a new file
 
 
 package baseline;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.io.*;
@@ -27,9 +28,12 @@ public class Solution41 {
     }
 
 
-    private BufferedReader getInputInfo()
+    private List<String> getInputInfo()
     {
+        //make list to add names to
+        List<String> nameList = new ArrayList<>();
 
+        BufferedReader input = 
     }
 
     private List organizeNames()
