@@ -1,0 +1,25 @@
+@startuml
+class Solution41 {
+    main(String[])
+}
+
+Application *-- Person
+
+class Person {
+  int: energyLevel
+  int: thirstLevel
+
+  eat()
+  drink()
+  exercise()
+  sleep(Time, Duration)
+  die()
+  work()
+}
+
+Person -- Time
+Person -- Duration
+
+mainString : getInputInfo
+
+@enduml
