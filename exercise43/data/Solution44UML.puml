@@ -1,0 +1,21 @@
+@startuml
+
+class Solution43 {
+    +main(String[])
+    -String getSiteName()
+    -String getAuthorName()
+    -boolean checkForJavaScriptFolder()
+    -boolean checkForCSSFolder()
+}
+
+class Folders {
+
+    +void createWebsite(String siteName)
+    +void createHTMLFile(String siteName, String authorName)
+    +void createJavaScriptFolder(String siteName, boolean js)
+    +void createCSSFolder(String siteName, boolean css)
+}
+
+Solution43 --o Folders
+
+@endumll

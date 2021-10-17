@@ -23,17 +23,30 @@ public class Solution43 {
 
     private static final Scanner input = new Scanner(System.in);
 
+
     public static void main(String[] args)
     {
         Solution43 solution = new Solution43();
+        Folders folder = new Folders();
 
+
+        //gets site name input
         String siteName = solution.getSiteName();
+        //gets string name input
         String authorName = solution.getAuthorName();
+        //gets boolean for whether we want a js folder or not
         boolean jsFolder = solution.checkForJavaScriptFolder();
-        boolean CSSFolder = solution.checkForCSSFolder();
-        String file = solution.createHTMLFile(siteName, authorName);
-        solution.createCSSFolder(siteName, CSSFolder);
-        solution.createJavaScriptFolder(siteName, jsFolder);
+        //gets boolean for whether we want a css folder or not
+        boolean cssFolder = solution.checkForCSSFolder();
+
+        //creates website folder
+        folder.createWebsite(siteName);
+        //creates html file
+        folder.createHTMLFile(siteName, authorName);
+        //creates css folder if needed
+        folder.createCSSFolder(siteName, cssFolder);
+        //creates js folder if needed
+        folder.createJavaScriptFolder(siteName, jsFolder);
 
     }
 
@@ -52,6 +65,7 @@ public class Solution43 {
         return input.nextLine();
     }
 
+
     private boolean checkForJavaScriptFolder()
     {
         //ask if the user wants a folder for javascript
@@ -60,14 +74,7 @@ public class Solution43 {
         String answer = input.nextLine();
 
         //return true if response is y. false for anything else
-        if(answer.equals("y"))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return answer.equals("y");
     }
 
     private boolean checkForCSSFolder()
@@ -77,84 +84,12 @@ public class Solution43 {
 
         String answer = input.nextLine();
         //return true if response is y. false for anything else.
-        if(answer.equals("y"))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return answer.equals("y");
     }
 
-    public String createHTMLFile(String siteName, String authorName)
-    {
-
-        String newFile = ("""
-        <!doctype html>
-        <html>
-        <head>
-        <title>$siteName</title>
-        <meta name = "author" content = "$authorName" />
-        </head>
-        <body>
-        <p>PogU</p>
-        </body>
-        </html>""".replace("$siteName", siteName).replace("$authorName", authorName));
-
-
-        File file = new File(".data/myWebsite/" + siteName + "/index.html");
-
-
-        try
-        {
-            BufferedWriter output = new BufferedWriter(new FileWriter(file));
-
-            output.write(newFile);
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-
-
-        return newFile;
-
-        //set the name of the site inside the title tag
-
-
-        //set the author name of the site in the meta tag
-
-
-        //create javascript folder if needed
-
-        //create css folder if needed
-
-
-        //close file
 
 
 
-    }
 
-    public void createJavaScriptFolder(String siteName, boolean js)
-    {
-        if(js)
-        {
-            File jsFolder = new File(".data/myWebsite/" + siteName + "/js");
-
-            jsFolder.mkdirs();
-        }
-    }
-
-    public void createCSSFolder(String siteName, boolean CSS)
-    {
-        if(CSS)
-        {
-            File CSSFolder = new File(".data/myWebsite/" + siteName + "/js");
-
-            CSSFolder.mkdirs();
-        }
-
-    }
 
 }
