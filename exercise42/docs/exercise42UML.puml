@@ -1,0 +1,17 @@
+@startuml
+
+class Solution42 {
+    +main(String[])
+    -void writeOutput(String[] employeeList)
+}
+
+class ListParser {
+
+    +List<String> getInputInfo()
+    +List<String> organizeList(List<String> nameList)
+    +String[] splitList(List<String> nameList)
+}
+
+Solution42 --o ListParser
+
+@enduml

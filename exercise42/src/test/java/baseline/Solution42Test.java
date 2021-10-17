@@ -7,13 +7,13 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class Solution42Test {
-    Solution42 solution = new Solution42();
+    ListParser parser = new ListParser();
 
     //test for getInputInfo
     @Test
     void testListInput()
     {
-        List<String> nameList = solution.getInputInfo();
+        List<String> nameList = parser.getInputInfo();
         //4th name expected from input
         String expected = "Jones,Chris,34500";
         //get 4th name in the list
@@ -27,7 +27,7 @@ class Solution42Test {
     @Test
     void testOrganizingNames()
     {
-        List<String> nameList = solution.getInputInfo();
+        List<String> nameList = parser.getInputInfo();
         java.util.Collections.sort(nameList);
         //expected first name
         String expected = "Johnson,Jim,56500";
@@ -36,27 +36,16 @@ class Solution42Test {
 
         assertEquals(expected, actual);
     }
-
-    //test for countNames
-    void testNameCount()
-    {
-        List<String> nameList = solution.getInputInfo();
-
-
-        int expected = 7;
-        int actual = solution.countNames(nameList);
-
-        assertEquals(expected, actual);
-    }
+    
 
     //test for splitList
+    @Test
     void testSplitList()
     {
-        List<String> nameList = solution.getInputInfo();
+        List<String> nameList = parser.getInputInfo();
         java.util.Collections.sort(nameList);
-        int names = 7;
 
-        String[] finalList = solution.splitList(nameList, names);
+        String[] finalList = parser.splitList(nameList);
 
         String expected = String.format("%-15s %-15s %-15s", "Jones", "Chris", "34500");
         String actual = finalList[2];
