@@ -1,0 +1,13 @@
+
+S	java:S1069"9Replace this use of System.out or System.err by a logger.(¹şŒèşÿÿÿÿ
+S	java:S106@"9Replace this use of System.out or System.err by a logger.(¯“³Úøÿÿÿÿ
+S	java:S106H"9Replace this use of System.out or System.err by a logger.(óêˆŠÿÿÿÿÿ
+N	java:S106S"9Replace this use of System.out or System.err by a logger.(ÅÍˆü
+O
+java:S1128"3Remove this unused import 'java.io.BufferedWriter'.(¬õº/8Ü“‚É/
+F
+java:S1128")Remove this unused import 'java.io.File'.(†Ğ¥Å8Ü“‚É/
+Q
+java:S1128"/Remove this unused import 'java.io.FileWriter'.(Ã‘ÅÃıÿÿÿÿ8Ü“‚É/
+R
+java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8Ü“‚É/

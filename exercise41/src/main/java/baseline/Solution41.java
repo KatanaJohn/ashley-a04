@@ -11,11 +11,7 @@ write the names/information into a new file
 
 
 package baseline;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
-import java.io.*;
-import java.util.Scanner;
 
 
 public class Solution41 {

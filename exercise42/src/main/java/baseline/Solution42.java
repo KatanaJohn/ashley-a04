@@ -10,7 +10,6 @@
 
 
 package baseline;
-import java.nio.file.Paths;
 import java.util.*;
 
 
@@ -27,6 +26,7 @@ public class Solution42 {
         //call organizeList
         namesList = parser.organizeList(namesList);
 
+        //parse/split the string array by , and organize into a format
         String[] namesArray = parser.splitList(namesList);
 
 

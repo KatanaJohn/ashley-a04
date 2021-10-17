@@ -64,9 +64,9 @@ public class Sorter {
                 i++;
             }
             output.close();
-        } catch(Exception ex)
+        } catch(Exception e)
         {
-            return;
+            e.printStackTrace();
         }
     }
 
