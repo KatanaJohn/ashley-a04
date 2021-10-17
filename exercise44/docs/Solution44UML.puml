@@ -1,0 +1,32 @@
+@startuml
+
+class Solution44
+{
+    +main(String[])
+    -String getInput()
+    -ProductList getFileInput()
+    +boolean printOutput(Product searchedProduct)
+}
+
+class ProductList
+{
+    List<Product>: products
+    +Product searchForProduct(String searchTerm)
+
+}
+
+class Product
+{
+    String: name
+    double: price
+    int: quantity
+    +Product(String name, double price, int quantity)
+    +String getName()
+    +double getPrice()
+    +int getQuantity()
+}
+
+Solution44 --o ProductList
+Solution44 --o Product
+
+@enduml
