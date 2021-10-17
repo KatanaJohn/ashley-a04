@@ -5,13 +5,17 @@
 
 package baseline;
 import java.io.*;
+import java.nio.file.Paths;
+import java.util.Scanner;
 
 public class Solution45 {
 
     public static void main(String[] args) {
         Solution45 solution = new Solution45();
 
+        //get input into a single string
         String phrase = solution.getInputInfo();
+        //replace the specified word in the string
         String newPhrase = solution.replaceWord(phrase);
         solution.makeOutput(newPhrase);
     }
@@ -19,18 +23,22 @@ public class Solution45 {
 
     public String getInputInfo() {
 
-        String phrasePlaceholder;
+        StringBuilder placeholder = new StringBuilder();
         //use bufferedReader to get input from file
         try {
-            BufferedReader input = new BufferedReader(new FileReader("C:\\Users\\Owner\\Desktop\\COP3330\\assignment04\\exercise45\\data\\exercise45_input.txt"));
+            Scanner input = new Scanner(Paths.get("data/exercise45_input.txt"));
             //set the input file to a new string
-            phrasePlaceholder = input.readLine();
+            while(input.hasNextLine())
+            {
+                placeholder.append(input.nextLine());
+            }
         } catch (Exception ex) {
             return "Invalid entry";
         }
 
         //return the string
-        return phrasePlaceholder;
+        return placeholder.toString();
+
     }
 
     public String replaceWord(String phrase) {
@@ -50,14 +58,14 @@ public class Solution45 {
     public void makeOutput(String newPhrase) {
         //create an output file
         try {
-            BufferedWriter output = new BufferedWriter(new FileWriter("C:\\Users\\Owner\\Desktop\\COP3330\\assignment04\\exercise45\\data\\exercise45_output.txt"));
+            BufferedWriter output = new BufferedWriter(new FileWriter(String.valueOf(Paths.get("data/exercise45_output.txt"))));
 
             //print the new string to the file
             output.write(newPhrase);
 
             output.close();
-        } catch (Exception ex) {
-            return;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 

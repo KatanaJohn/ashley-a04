@@ -1,0 +1,13 @@
+@startuml
+' I feel like with how short/simple this specific exercise is and how it could probably be shortened further,
+' there isn't a strong need for multiple/a second class.
+
+class Solution45 {
+    +main(String[])
+    +String getInputInfo()
+    +String replaceWord(String phrase)
+    +void makeOutput(String newPhrase)
+}
+
+
+@enduml
