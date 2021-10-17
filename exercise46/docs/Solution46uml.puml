@@ -1,0 +1,16 @@
+@startuml
+
+class Solution46 {
+    +main(String[])
+    -void printOutput(Map<String, Integer> wordFrequency)
+}
+
+class Frequency {
+
+    +Map<String, Integer> getInputWordFrequency()
+    +Map<String, Integer> sortByMostUsedWord(Map<String, Integer> wordFrequency)
+}
+
+Solution46 --o Frequency
+
+@enduml

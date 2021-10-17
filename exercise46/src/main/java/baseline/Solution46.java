@@ -11,10 +11,6 @@ sort map by greatest number of appearances/integer values
 
 
 package baseline;
-
-
-import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.*;
 
 public class Solution46 {
@@ -22,62 +18,16 @@ public class Solution46 {
     public static void main(String[] args)
     {
         Solution46 solution = new Solution46();
+        Frequency frequency = new Frequency();
 
-        Map<String, Integer> wordFrequency = solution.getInputWordFrequency();
+        Map<String, Integer> wordFrequency = frequency.getInputWordFrequency();
 
-        wordFrequency = solution.sortByMostUsedWord(wordFrequency);
+        wordFrequency = frequency.sortByMostUsedWord(wordFrequency);
 
         solution.printOutput(wordFrequency);
     }
 
-    private Map<String, Integer> getInputWordFrequency()
-    {
-        //create string-integer map
-        Map<String, Integer> wordFrequency = new HashMap<>();
 
-        //read in file and scan for words
-        try(Scanner input = new Scanner(Paths.get("data/exercise46_input.txt")))
-        {
-            while(input.hasNext())
-            {
-                //get next word
-                String word = input.next();
-
-                //compare to other words in the map
-                if(wordFrequency.containsKey(word))
-                {
-                    //increase value of word by 1
-                    wordFrequency.put(word, wordFrequency.get(word)+1);
-                }
-                else
-                {
-                    //add a new word to the map if it does not exist
-                    wordFrequency.put(word, 1);
-                }
-            }
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-
-        //if the word doesn't exist, add it. if it does exist, increase integer by 1.
-
-        return wordFrequency;
-    }
-
-    private LinkedHashMap<String, Integer> sortByMostUsedWord(Map<String, Integer> wordFrequency)
-    {
-
-        //create a linked hash map (easier printing later)
-        LinkedHashMap<String, Integer> sortedMap = new LinkedHashMap<>();
-
-        //sort map
-        wordFrequency.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).forEachOrdered(x -> sortedMap.put(x.getKey(), x.getValue()));
-
-        //return linked hash map
-        return sortedMap;
-    }
 
     private void printOutput(Map<String, Integer> wordFrequency)
     {
