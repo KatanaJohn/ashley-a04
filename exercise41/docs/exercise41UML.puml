@@ -1,25 +1,17 @@
 @startuml
+
 class Solution41 {
-    main(String[])
+    +main(String[])
 }
 
-Application *-- Person
+class Sorter {
 
-class Person {
-  int: energyLevel
-  int: thirstLevel
-
-  eat()
-  drink()
-  exercise()
-  sleep(Time, Duration)
-  die()
-  work()
+    +List<String> getInputInfo ()
+    +List<String> organizeNames(List<String> nameList)
+    +int countNames(List<String> nameList)
+    +void writeToOutput(List<String> nameList, int names)
 }
 
-Person -- Time
-Person -- Duration
-
-mainString : getInputInfo
+Solution41 --o Sorter
 
 @enduml
